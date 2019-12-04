@@ -1,0 +1,10 @@
+<h2>Derniers articles de la catégorie</h2>
+<div class="list-group list-group-flush">
+    {% for article in articles %}
+        <a class="list-group-item" href="{{ path('app_article_index', {"id": article.id})}}">
+            {{ article }}
+        </a>
+        {% else %}
+            <p>Aucun article</p>
+    {% endfor %}
+</div>

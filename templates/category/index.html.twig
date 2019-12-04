@@ -4,4 +4,14 @@
 {% block body %}
     {# grâce à la méthode __toString dans l'entity, category y fait référence  #}
     <h1>{{ category }}</h1>
+
+{#    <h2>Derniers articles de la catégorie</h2>#}
+{#    <div class="list-group list-group-flush">#}
+{#    {% for article in articles %}#}
+{#        <a class="list-group-item" href="{{ path('app_article_index', {"id": article.id})}}">#}
+{#            {{ article }}#}
+{#        </a>#}
+{#    {% endfor %}#}
+{#    </div>#}
+    {% include 'article/_list.html.twig' with {'articles': articles} only %}
 {% endblock %}

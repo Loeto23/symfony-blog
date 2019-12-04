@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <h1>Accueil</h1>
 
     <p>Bienvenu sur le blog</p>
 
+    {% include 'article/_list.html.twig' with {'articles': articles} only %}
 {% endblock %}

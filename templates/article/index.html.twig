@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{#    {% for article in unArticle %}#}
+{#        <p><strong>Contenu : </strong>{{ article.content }}</p>#}
+{#        <p><strong>Date de publication : </strong>{{ article.publicationDate|date('d/m/Y') }}</p>#}
+{#        <p>{% if article.image is not null %}#}
+{#            <img src="{{ asset('images/' ~ article.image) }}" height="200">#}
+{#                {% else %}#}
+{#                <p>Aucune image</p>#}
+{#            {% endif %}#}
+{#        </p>#}
+{#        <p><strong>Auteur : </strong>{{ article.author }}</p>#}
+{#    {% endfor %}#}
+
+    <h1>{{ article }}</h1> {# grâce à la méthode __toString il retourne le titre de l'article #}
+
+    <p>
+        Par {{ article.author }},
+        <em>{{ article.publicationDate|date('d/m/Y H:i') }}</em>
+        <br>
+        <strong>
+            Dans <a href="{{ path('app_category_index',
+                {'id': article.category.id}) }}">
+                {{ article.category }}
+            </a>
+        </strong>
+    </p>
+
+    {% if article.image is not null %}
+        <div class="text-center">
+            <img src="{{ asset('images/' ~ article.image) }}" width="100%">
+        </div>
+    {% endif %}
+
+    <p>{{ article.content|nl2br }}</p>
+{% endblock %}
